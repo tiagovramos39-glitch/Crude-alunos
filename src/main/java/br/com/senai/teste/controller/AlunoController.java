@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.senai.teste.model.Aluno;
 import br.com.senai.teste.service.AlunoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/alunos")
@@ -29,11 +30,11 @@ public class AlunoController {
 
     @PostMapping
     public ResponseEntity<Aluno> cadastrar(
-            @RequestBody Aluno aluno) {
-
+            @Valid @RequestBody Aluno aluno) {
         Aluno alunoCadastrado = alunoService.cadastrar(aluno);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(alunoCadastrado);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(alunoCadastrado);
     }
 
     @GetMapping
