@@ -1,11 +1,15 @@
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\controller\AlunoController.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\controller\LivroController.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\controller\TesteController.java
+C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\dto\EmprestimoRequest.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\Exception\ValidacaoExceptionHandler.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\model\Aluno.java
+C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\model\Emprestimo.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\model\Livro.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\repository\AlunoRepository.java
+C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\repository\EmprestimoRepository.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\repository\LivroRepository.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\service\AlunoService.java
+C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\service\EmprestimoService.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\service\LivroService.java
 C:\Users\VAS0037815\Downloads\Banco-de-dados-main\Banco-de-dados-main\teste\src\main\java\br\com\senai\teste\TesteApplication.java
