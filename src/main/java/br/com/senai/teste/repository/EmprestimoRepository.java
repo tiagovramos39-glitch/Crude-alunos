@@ -5,4 +5,6 @@ import br.com.senai.teste.model.Emprestimo;
 
 public interface EmprestimoRepository 
     extends JpaRepository<Emprestimo, Integer>{
+
+        boolean existsByLivroIdAndDataDevolucaoIsNull(Integer livroId);
     }
