@@ -64,4 +64,10 @@ public class EmprestimoController {
 
         return ResponseEntity.ok(emprestimos);
     }
+
+    @GetMapping ("/ativos")
+    public ResponseEntity<List<Emprestimo>> listarAtivos() {
+        List<Emprestimo> emprestimos = emprestimoService.listarAtivos();
+        return ResponseEntity.ok(emprestimos);
+    }
 }
