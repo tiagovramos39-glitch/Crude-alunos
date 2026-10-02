@@ -31,7 +31,7 @@ public class EmprestimoService {
     }
 
     public Optional<Emprestimo> cadastrar(
-            Integer alunoId, Integer livroId) {
+            Integer alunoId, Integer livroId, LocalDate dataPrevistaDevolucao) {
         Optional<Aluno> aluno = alunoRepository.findById(alunoId);
         Optional<Livro> livro = livroRepository.findById(livroId);
 
@@ -49,6 +49,7 @@ public class EmprestimoService {
         emprestimo.setAluno(aluno.get());
         emprestimo.setLivro(livro.get());
         emprestimo.setDataEmprestimo(LocalDate.now());
+        emprestimo.setDataPrevistaDevolucao(dataPrevistaDevolucao);
 
         return Optional.of(emprestimoRepository.save(emprestimo));
     }
@@ -68,6 +69,7 @@ public class EmprestimoService {
         }
         return Optional.of(emprestimo);
     }
+
     public List<Emprestimo> listar() {
         return emprestimoRepository.findAll();
     }
@@ -78,5 +80,37 @@ public class EmprestimoService {
 
     public List<Emprestimo> listarPorAluno(Integer alunoId) {
         return emprestimoRepository.findByAlunoId(alunoId);
+    }
+
+    public List<Emprestimo> listarPorLivro(Integer livroId) {
+        return emprestimoRepository.findByLivroId(livroId);
+    }
+
+    public List<Emprestimo> listarAtrasados() {
+        LocalDate dataAtual = LocalDate.now();
+        return emprestimoRepository.findByDataPrevistaDevolucaoBeforeAndDataDevolucaoIsNull(dataAtual);
+    }
+
+    public Optional<Emprestimo> renovar(
+        Integer id, LocalDate novaDataPrevista) {
+            Optional<Emprestimo> emprestimOptional = emprestimoRepository.findById(id);
+
+            if (emprestimOptional.isEmpty()) {
+                return Optional.empty();
+            }
+
+            Emprestimo emprestimo = emprestimOptional.get();
+
+            if (emprestimo.getDataDevolucao() != null) {
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "Um empréstimo não pode ser renovado");
+            }
+
+            if(!novaDataPrevista.isAfter(emprestimo.getDataPrevistaDevolucao())) {
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "A nova data deve ser posterior ao prazo atual");
+            }
+
+            emprestimo.setDataPrevistaDevolucao(novaDataPrevista);
+
+            return Optional.of(emprestimoRepository.save(emprestimo));
     }
 }
